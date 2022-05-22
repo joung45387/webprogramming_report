@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,7 +18,7 @@
             min-height: 300px;
             margin: 0 auto;
         }
-        header, section  {
+        header {
             margin: 5px;
             padding: 10px;
         }
@@ -32,36 +30,17 @@
             font-weight: bold;
         }
 
-        section {
-            float: left;
-            height: 200px;
-            width: 100%;
-            overflow:hidden;
-        }
-
-        section p{
-            padding-bottom: 5px;
-            border-bottom: 2px solid black;
-        }
-
-        article {
-            width: 90%;
-            margin-left: 20px;
-            list-style: none;
-            overflow: hidden;
-            line-height: 30px;
-        }
 
         header ul li {
             list-style: none;
             float : left;
-            /*border-right:  1px solid #191919;*/
             padding-left : 30px;
             padding-right : 30px;
             color : black;
         }
         header ul:hover {
             font-weight: normal;
+            cursor: pointer;
         }
 
         header ul li:hover {
@@ -69,17 +48,20 @@
         }
         header ul {
             overflow:hidden;
-            display:table; /* 중앙정렬을 위한 width값 제한 */
+            display:table;
             margin-left: auto;
             margin-right: auto;
         }
+        img {
+            width : 10%;
+            height: 10%;
+        }
 
-        #maintop {
+        #top {
             margin-top:  50px;
             text-align: center;
             font-size: 40px;
             line-height: 50px;
-            margin-left : 40px;
         }
         iframe{
             display:block;
@@ -91,30 +73,34 @@
 
 
     <script>
+        var li = new Array("s1", "s2", "s3");
         function evet(e){
             var ifr = document.getElementsByTagName("iframe");
-            if(e.target.id === "s1"){
+            if(e.target.id === li[0]){
                 ifr[0].src = "sub1.html";
             }
-            else if(e.target.id === "s2"){
+            else if(e.target.id === li[1]){
                 ifr[0].src = "sub2.html";
             }
-            else if(e.target.id === "s3"){
+            else if(e.target.id === li[2]){
                 ifr[0].src = "sub3.html";
             }
+        }
+        function lnk(){
+            window.open("https://github.com/joung45387/webprogramming_report", "_blank");
         }
     </script>
 </head>
 <body>
 
-<div id="maintop">웹프로그래밍 과제</div>
+<div id="top"><a href="https://www.kakaocorp.com/"><img src="res/kakao.jpg"></a></div>
 <h4>201801803 이종훈 </h4>
 <header>
     <ul>
         <li title="주제 선정 동기" id="s1" onclick="evet(event)">주제 선정 동기</li>
         <li title="주제 관련 Future Plane" id="s2" onclick="evet(event)">주제 관련 Future Plane</li>
         <li title="관심 기술 혹은 기업 관련 상세 내용" id="s3" onclick="evet(event)">관심 기술 혹은 기업 관련 상세 내용</li>
-        <li title="GitHub" href="https://github.com/joung45387/webprogramming_report">GitHub</li>
+        <li title="GitHub" onclick="lnk()">GitHub</li>
     </ul>
 </header>
 <iframe src = "sub1.html" >

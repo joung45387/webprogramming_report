@@ -13,10 +13,44 @@
             border-bottom: 1px solid #444444;
             padding: 10px;
         }
+        form {
+            position: absolute;
+            right: 0px;
+        }
+        textarea {
+            width: 100%;
+            height: 80vh;
+            display: none;
+        }
     </style>
+
+    <script>
+        var tf = false;
+        function a(){
+            var btn = document.getElementById("btn");
+            var sp = document.getElementById("sp");
+            var ta = document.getElementById("ta");
+            if(tf){
+                tf = false;
+                ta.style.display = 'none';
+                sp.style.display = 'block';
+                btn.value = "수정";
+                sp.innerHTML = ta.value;
+            }else{
+                tf = true;
+                ta.style.display = 'block';
+                sp.style.display = 'none';
+                btn.value = "완료";
+                ta.value = sp.innerHTML;
+            }
+        }
+    </script>
 </head>
-<body>
-<span>
+<body onload="le()">
+<form>
+    <input type="button" id="btn" onclick="a()" value="수정">
+</form>
+<span id="sp">
     <h2>기업 개요</h2>
     카카오는 모바일 및 인터넷 서버스를 제공하는 IT 기업으로 대표적인 서비스로는 카카오톡, 카카오페이지, 카카오뱅크 등을 서비스한다.<br>
     여기서 카카오톡은 21년 8월 기준 점유율 87% 라는 모바일 메신저로 독보적인 위치를 가진 서비스를 운영하고 있다.<br>
@@ -81,5 +115,8 @@
     코딩테스트는 카카오뿐만 아니라 다른 기업에서도 코딩테스트를 보는 경우가 많으므로 직업을 개발자로 정한 사람들은 코딩 테스트를 준비해야 할 필요가 있다.
 
 </span>
+<textarea id="ta">
+
+</textarea>
 </body>
 </html>
