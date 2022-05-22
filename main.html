@@ -81,29 +81,43 @@
             line-height: 50px;
             margin-left : 40px;
         }
+        iframe{
+            display:block;
+            border: none;
+            width:100%;
+            height: 60vh;
+        }
     </style>
+
+
+    <script>
+        function evet(e){
+            var ifr = document.getElementsByTagName("iframe");
+            if(e.target.id === "s1"){
+                ifr[0].src = "sub1.html";
+            }
+            else if(e.target.id === "s2"){
+                ifr[0].src = "sub2.html";
+            }
+            else if(e.target.id === "s3"){
+                ifr[0].src = "sub3.html";
+            }
+        }
+    </script>
 </head>
 <body>
+
 <div id="maintop">웹프로그래밍 과제</div>
 <h4>201801803 이종훈 </h4>
 <header>
     <ul>
-        <li title="주제 선정 동기">주제 선정 동기</li>
-        <li title="주제 관련 Future Plane">주제 관련 Future Plane</li>
-        <li title="관심 기술 혹은 기업 관련 상세 내용">관심 기술 혹은 기업 관련 상세 내용</li>
-        <li title="GitHub">GitHub</li>
+        <li title="주제 선정 동기" id="s1" onclick="evet(event)">주제 선정 동기</li>
+        <li title="주제 관련 Future Plane" id="s2" onclick="evet(event)">주제 관련 Future Plane</li>
+        <li title="관심 기술 혹은 기업 관련 상세 내용" id="s3" onclick="evet(event)">관심 기술 혹은 기업 관련 상세 내용</li>
+        <li title="GitHub" href="https://github.com/joung45387/webprogramming_report">GitHub</li>
     </ul>
 </header>
-<div id = "board1">
-    <section>
-        <p>내용</p>
-        <article>
-            <li>주제 선정 동기</li>
-            <li>주제 관련 Future Plane</li>
-            <li>관심 기술 혹은 기업 관련 상세 내용</li>
-            <li>GitHub</li>
-        </article>
-    </section>
-</div>
+<iframe src = "sub1.html" >
+</iframe>
 </body>
 </html>
